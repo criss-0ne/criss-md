@@ -1,44 +1,434 @@
  <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nyoni-Movie</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NyoniTube - Stream Movies & TV Shows Free</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="images/logo.png">
 </head>
 <body>
-  <header>
-    <h1>Nyoni-Movie</h1>
-    <nav>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#movies">Movies</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <section id="home" class="hero">
-    <h2>Welcome to Nyoni-Movie</h2>
-    <p>Discover trending movies and trailers here.</p>
-  </section>
-
-  <section id="movies" class="movie-list">
-    <h2>Trending Movies</h2>
-    <div id="movie-container" class="movie-container">
-      <!-- Card za movies zitaongezwa hapa na JavaScript -->
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader">
+            <div class="film-reel">
+                <i class="fas fa-film"></i>
+                <i class="fas fa-film"></i>
+                <i class="fas fa-film"></i>
+            </div>
+            <h2>NyoniTube<span>Movie</span></h2>
+            <p>Loading your cinematic experience...</p>
+        </div>
     </div>
-  </section>
 
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>Email: info@nyonimovie.com</p>
-  </section>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="#">
+                    <i class="fas fa-film"></i>
+                    <h1>NyoniTube<span>Movie</span></h1>
+                </a>
+            </div>
+            
+            <div class="nav-menu">
+                <a href="#home" class="nav-link active"><i class="fas fa-home"></i> Home</a>
+                <a href="#movies" class="nav-link"><i class="fas fa-film"></i> Movies</a>
+                <a href="#series" class="nav-link"><i class="fas fa-tv"></i> TV Series</a>
+                <a href="#trending" class="nav-link"><i class="fas fa-fire"></i> Trending</a>
+                <a href="#categories" class="nav-link"><i class="fas fa-list"></i> Categories</a>
+            </div>
+            
+            <div class="nav-actions">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search movies...">
+                    <button id="searchBtn"><i class="fas fa-search"></i></button>
+                </div>
+                <button class="auth-btn" id="loginBtn"><i class="fas fa-user"></i> Login</button>
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
 
-  <footer>
-    <p>© 2025 Nyoni-Movie. All Rights Reserved.</p>
-  </footer>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-slider">
+            <div class="slide active">
+                <div class="slide-content">
+                    <h2 class="slide-title">Avengers: Endgame</h2>
+                    <p class="slide-desc">The epic conclusion to the Infinity Saga where the Avengers assemble one last time.</p>
+                    <div class="slide-meta">
+                        <span class="rating"><i class="fas fa-star"></i> 8.4/10</span>
+                        <span class="year">2023</span>
+                        <span class="duration">3h 2m</span>
+                    </div>
+                    <div class="slide-actions">
+                        <button class="play-btn"><i class="fas fa-play"></i> Watch Now</button>
+                        <button class="info-btn"><i class="fas fa-info-circle"></i> More Info</button>
+                    </div>
+                </div>
+                <div class="slide-overlay"></div>
+                <img src="https://images.unsplash.com/photo-1635805737707-575885ab0820?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Avengers" class="slide-img">
+            </div>
+            
+            <div class="slide">
+                <div class="slide-content">
+                    <h2 class="slide-title">Spider-Man: No Way Home</h2>
+                    <p class="slide-desc">Spider-Man's identity is revealed, and he seeks Doctor Strange's help.</p>
+                    <div class="slide-meta">
+                        <span class="rating"><i class="fas fa-star"></i> 8.2/10</span>
+                        <span class="year">2021</span>
+                        <span class="duration">2h 28m</span>
+                    </div>
+                    <div class="slide-actions">
+                        <button class="play-btn"><i class="fas fa-play"></i> Watch Now</button>
+                        <button class="info-btn"><i class="fas fa-info-circle"></i> More Info</button>
+                    </div>
+                </div>
+                <div class="slide-overlay"></div>
+                <img src="https://images.unsplash.com/photo-1635805737707-575885ab0820?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Spider-Man" class="slide-img">
+            </div>
+            
+            <div class="slide">
+                <div class="slide-content">
+                    <h2 class="slide-title">The Batman</h2>
+                    <p class="slide-desc">Batman ventures into Gotham City's underworld when a sadistic killer leaves behind a trail of cryptic clues.</p>
+                    <div class="slide-meta">
+                        <span class="rating"><i class="fas fa-star"></i> 7.8/10</span>
+                        <span class="year">2022</span>
+                        <span class="duration">2h 56m</span>
+                    </div>
+                    <div class="slide-actions">
+                        <button class="play-btn"><i class="fas fa-play"></i> Watch Now</button>
+                        <button class="info-btn"><i class="fas fa-info-circle"></i> More Info</button>
+                    </div>
+                </div>
+                <div class="slide-overlay"></div>
+                <img src="https://images.unsplash.com/photo-1635805737707-575885ab0820?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Batman" class="slide-img">
+            </div>
+        </div>
+        
+        <div class="slider-controls">
+            <button class="slider-prev"><i class="fas fa-chevron-left"></i></button>
+            <div class="slider-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+            <button class="slider-next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
 
-  <script src="script.js"></script>
+    <!-- Categories Section -->
+    <section class="categories-section" id="categories">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Browse by Category</h2>
+                <a href="#" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="categories-grid">
+                <div class="category-card" data-category="action">
+                    <div class="category-icon">
+                        <i class="fas fa-explosion"></i>
+                    </div>
+                    <h3>Action</h3>
+                    <p>245 movies</p>
+                </div>
+                
+                <div class="category-card" data-category="comedy">
+                    <div class="category-icon">
+                        <i class="fas fa-laugh"></i>
+                    </div>
+                    <h3>Comedy</h3>
+                    <p>189 movies</p>
+                </div>
+                
+                <div class="category-card" data-category="drama">
+                    <div class="category-icon">
+                        <i class="fas fa-theater-masks"></i>
+                    </div>
+                    <h3>Drama</h3>
+                    <p>312 movies</p>
+                </div>
+                
+                <div class="category-card" data-category="horror">
+                    <div class="category-icon">
+                        <i class="fas fa-ghost"></i>
+                    </div>
+                    <h3>Horror</h3>
+                    <p>167 movies</p>
+                </div>
+                
+                <div class="category-card" data-category="sci-fi">
+                    <div class="category-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Sci-Fi</h3>
+                    <p>198 movies</p>
+                </div>
+                
+                <div class="category-card" data-category="romance">
+                    <div class="category-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Romance</h3>
+                    <p>156 movies</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Movies Section -->
+    <section class="movies-section" id="movies">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Latest Movies</h2>
+                <div class="filter-options">
+                    <select id="genreFilter">
+                        <option value="all">All Genres</option>
+                        <option value="action">Action</option>
+                        <option value="comedy">Comedy</option>
+                        <option value="drama">Drama</option>
+                        <option value="horror">Horror</option>
+                    </select>
+                    <select id="yearFilter">
+                        <option value="all">All Years</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="movies-grid" id="moviesGrid">
+                <!-- Movies will be loaded by JavaScript -->
+            </div>
+            
+            <div class="load-more">
+                <button id="loadMoreBtn">Load More Movies</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- TV Series Section -->
+    <section class="series-section" id="series">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Popular TV Series</h2>
+                <a href="#" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="series-grid">
+                <!-- Series will be loaded by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Trending Section -->
+    <section class="trending-section" id="trending">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title"><i class="fas fa-fire"></i> Trending Now</h2>
+                <a href="#" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="trending-slider">
+                <div class="trending-item">
+                    <div class="trending-rank">#1</div>
+                    <img src="https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Trending 1">
+                    <div class="trending-info">
+                        <h3>Stranger Things</h3>
+                        <p>Season 4 now streaming</p>
+                    </div>
+                </div>
+                
+                <div class="trending-item">
+                    <div class="trending-rank">#2</div>
+                    <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-4.0.3&auto=format&fit=crop&w-400&q=80" alt="Trending 2">
+                    <div class="trending-info">
+                        <h3>The Crown</h3>
+                        <p>Final season available</p>
+                    </div>
+                </div>
+                
+                <div class="trending-item">
+                    <div class="trending-rank">#3</div>
+                    <img src="https://images.unsplash.com/photo-1595769812725-4c6564f7528b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Trending 3">
+                    <div class="trending-info">
+                        <h3>Game of Thrones</h3>
+                        <p>Complete series boxset</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-hd"></i>
+                    </div>
+                    <h3>HD Quality</h3>
+                    <p>Enjoy movies and series in crystal clear HD and 4K resolution.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Watch Anywhere</h3>
+                    <p>Stream on your phone, tablet, laptop, or TV. No limits.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-download"></i>
+                    </div>
+                    <h3>Download & Watch</h3>
+                    <p>Download your favorites to watch offline anywhere.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <h3>Multiple Profiles</h3>
+                    <p>Create up to 5 profiles for different family members.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <i class="fas fa-film"></i>
+                        <h2>NyoniTube<span>Movie</span></h2>
+                    </div>
+                    <p class="footer-desc">
+                        Your ultimate destination for streaming the latest movies and TV shows in high quality. Watch anytime, anywhere.
+                    </p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#movies">Movies</a></li>
+                        <li><a href="#series">TV Series</a></li>
+                        <li><a href="#trending">Trending</a></li>
+                        <li><a href="#categories">Categories</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">DMCA</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to get updates on new releases.</p>
+                    <div class="newsletter">
+                        <input type="email" placeholder="Your email address">
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                    <div class="app-download">
+                        <p>Download our app</p>
+                        <div class="app-buttons">
+                            <a href="#" class="app-btn">
+                                <i class="fab fa-google-play"></i>
+                                <span>Google Play</span>
+                            </a>
+                            <a href="#" class="app-btn">
+                                <i class="fab fa-app-store"></i>
+                                <span>App Store</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 NyoniTube-Movie. All rights reserved. | Designed with <i class="fas fa-heart"></i> for movie lovers worldwide</p>
+                <div class="footer-links">
+                    <span><i class="fas fa-globe"></i> English</span>
+                    <span><i class="fas fa-shield-alt"></i> Safe Streaming</span>
+                    <span><i class="fas fa-user-clock"></i> 24/7 Support</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Video Player Modal -->
+    <div class="video-modal" id="videoModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal"><i class="fas fa-times"></i></button>
+            <div class="video-container">
+                <video id="moviePlayer" controls>
+                    <source src="movies/sample.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="video-info">
+                <h3 id="videoTitle">Movie Title</h3>
+                <div class="video-meta">
+                    <span id="videoYear">2024</span>
+                    <span id="videoDuration">2h 15m</span>
+                    <span id="videoRating">8.5/10</span>
+                </div>
+                <p id="videoDescription">Movie description will appear here.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="auth-modal" id="authModal">
+        <div class="auth-content">
+            <button class="auth-close" id="closeAuth"><i class="fas fa-times"></i></button>
+            <h2>Welcome to NyoniTube</h2>
+            <form id="loginForm">
+                <input type="email" placeholder="Email address" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit" class="auth-submit">Sign In</button>
+            </form>
+            <p class="auth-divider">or continue with</p>
+            <div class="social-auth">
+                <button class="social-btn google"><i class="fab fa-google"></i> Google</button>
+                <button class="social-btn facebook"><i class="fab fa-facebook-f"></i> Facebook</button>
+            </div>
+            <p class="auth-footer">Don't have an account? <a href="#" id="switchToSignup">Sign up</a></p>
+        </div>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
 </body>
-                            </html>
+ </html>
