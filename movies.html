@@ -1,0 +1,89 @@
+ <!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filamu Zote - NyoniTube</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-film"></i>
+                <span>Nyoni<span>Tube</span></span>
+            </a>
+            
+            <div class="nav-links">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <a href="movies.html" class="active"><i class="fas fa-film"></i> Filamu</a>
+                <a href="series.html"><i class="fas fa-tv"></i> TV</a>
+            </div>
+            
+            <div class="nav-right">
+                <div class="search-box">
+                    <input type="text" placeholder="Tafuta filamu..." id="searchMovies">
+                    <button onclick="searchMovies()"><i class="fas fa-search"></i></button>
+                </div>
+                <a href="login.html" class="btn-login"><i class="fas fa-user"></i> Ingia</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>FILAMU ZOTE</h1>
+            <p>Orodha ya filamu zote zinazopatikana</p>
+            
+            <div class="filters">
+                <select id="genreFilter" onchange="filterMovies()">
+                    <option value="all">Aina Zote</option>
+                    <option value="action">Action</option>
+                    <option value="comedy">Comedy</option>
+                    <option value="drama">Drama</option>
+                    <option value="horror">Horror</option>
+                    <option value="bongo">Bongo</option>
+                    <option value="sci-fi">Sci-Fi</option>
+                </select>
+                
+                <select id="yearFilter" onchange="filterMovies()">
+                    <option value="all">Mwaka Wote</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                </select>
+                
+                <select id="sortFilter" onchange="filterMovies()">
+                    <option value="newest">Mpya zaidi</option>
+                    <option value="oldest">Kale zaidi</option>
+                    <option value="rating">Vipimo vya juu</option>
+                    <option value="views">Watazamaji wengi</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="movies-container">
+            <div class="movies-grid" id="allMovies">
+                <!-- All movies load here -->
+            </div>
+            
+            <div class="load-more">
+                <button onclick="loadMoreMovies()" id="loadMoreBtn">
+                    <i class="fas fa-plus"></i> Pakia zaidi
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 NyoniTube - Filamu Bure</p>
+            <p><a href="index.html" style="color:#aaa;">Rudi nyumbani</a> | <a href="admin.html" style="color:#aaa;">Admin</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+  </html>
