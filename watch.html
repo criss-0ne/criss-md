@@ -1,0 +1,91 @@
+ <!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tazama Filamu - NyoniTube</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-film"></i>
+                <span>Nyoni<span>Tube</span></span>
+            </a>
+            <a href="movies.html" class="btn-back"><i class="fas fa-arrow-left"></i> Rudi kwenye Filamu</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="video-player-container">
+            <div class="video-wrapper">
+                <div class="video-placeholder" id="videoPlayer">
+                    <div class="video-message">
+                        <i class="fas fa-play-circle"></i>
+                        <h3>Filamu Inaanza Hapa</h3>
+                        <p>Kwenye tovuti halisi, video ingekuwa inacheza hapa</p>
+                        <button class="btn-primary" onclick="playDemo()">
+                            <i class="fas fa-play"></i> Onyesha Mfano
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="video-controls">
+                    <button class="btn-control" onclick="togglePlay()"><i class="fas fa-play"></i> Play</button>
+                    <button class="btn-control" onclick="toggleMute()"><i class="fas fa-volume-up"></i> Volume</button>
+                    <input type="range" min="0" max="100" value="50" class="volume-slider" onchange="changeVolume(this.value)">
+                    <button class="btn-control" onclick="toggleFullscreen()"><i class="fas fa-expand"></i> Fullscreen</button>
+                </div>
+            </div>
+            
+            <div class="video-info">
+                <h1 id="movieTitle">Jina la Filamu</h1>
+                <div class="video-meta">
+                    <span><i class="fas fa-calendar"></i> <span id="movieYear">2024</span></span>
+                    <span><i class="fas fa-star"></i> <span id="movieRating">8.5</span>/10</span>
+                    <span><i class="fas fa-clock"></i> <span id="movieDuration">2h 15m</span></span>
+                    <span><i class="fas fa-film"></i> <span id="movieGenre">Action</span></span>
+                </div>
+                
+                <div class="video-description">
+                    <h3>Maelezo</h3>
+                    <p id="movieDescription">Maelezo ya filamu yataonekana hapa...</p>
+                </div>
+                
+                <div class="video-actions">
+                    <button class="btn-action like-btn" onclick="likeMovie()">
+                        <i class="far fa-thumbs-up"></i> Penda
+                    </button>
+                    <button class="btn-action share-btn" onclick="shareMovie()">
+                        <i class="fas fa-share"></i> Shiriki
+                    </button>
+                    <button class="btn-action save-btn" onclick="saveMovie()">
+                        <i class="far fa-bookmark"></i> Hifadhi
+                    </button>
+                    <button class="btn-action report-btn" onclick="reportMovie()">
+                        <i class="fas fa-flag"></i> Ripoti
+                    </button>
+                </div>
+            </div>
+            
+            <div class="related-movies">
+                <h3>Filamu Zinazofanana</h3>
+                <div class="related-grid" id="relatedMovies">
+                    <!-- Related movies load here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 NyoniTube - Video Player</p>
+            <p><a href="index.html" style="color:#aaa;">Rudi nyumbani</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+  </html>
