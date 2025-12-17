@@ -1,0 +1,93 @@
+ <!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - NyoniTube</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .admin-container { padding: 20px; }
+        .admin-header { background: #333; padding: 20px; border-radius: 10px; margin-bottom: 20px; }
+        .admin-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .admin-card { background: #222; padding: 20px; border-radius: 10px; }
+        .admin-form input, .admin-form select, .admin-form textarea { width: 100%; padding: 10px; margin: 5px 0; }
+        .movie-list-item { background: #333; padding: 10px; margin: 5px 0; border-radius: 5px; display: flex; justify-content: space-between; }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1><i class="fas fa-crown"></i> NyoniTube Admin</h1>
+            <p>Usimamizi wa filamu na tovuti</p>
+        </div>
+        
+        <div class="admin-grid">
+            <div class="admin-card">
+                <h3><i class="fas fa-plus-circle"></i> Ongeza Filamu</h3>
+                <form class="admin-form" onsubmit="return addMovie(event)">
+                    <input type="text" placeholder="Jina la Filamu" required>
+                    <input type="number" placeholder="Mwaka" min="2000" max="2024" required>
+                    <select required>
+                        <option value="">Chagua Aina</option>
+                        <option>Action</option>
+                        <option>Comedy</option>
+                        <option>Drama</option>
+                        <option>Bongo</option>
+                    </select>
+                    <input type="text" placeholder="Picha (URL)" required>
+                    <textarea placeholder="Maelezo" rows="3"></textarea>
+                    <button type="submit" class="btn-primary">Ongeza</button>
+                </form>
+            </div>
+            
+            <div class="admin-card">
+                <h3><i class="fas fa-list"></i> Filamu Zote</h3>
+                <div id="movieList">
+                    <!-- Movies list here -->
+                </div>
+            </div>
+            
+            <div class="admin-card">
+                <h3><i class="fas fa-chart-bar"></i> Takwimu</h3>
+                <div id="stats">
+                    <p>Jumla ya Filamu: <span id="totalMovies">0</span></p>
+                    <p>Watazamaji Leo: <span id="todayViews">0</span></p>
+                    <p>Aina Inayovuma: <span id="topGenre">-</span></p>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align:center; margin-top:30px;">
+            <a href="index.html" class="btn-secondary">Rudi kwenye Tovuti</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Simple admin functions
+        function addMovie(e) {
+            e.preventDefault();
+            alert('Filamu imeongezwa (kwenye tovuti halisi)');
+            return false;
+        }
+        
+        // Load movies for admin
+        const movies = JSON.parse(localStorage.getItem('nyonitube_movies') || '[]');
+        document.getElementById('totalMovies').textContent = movies.length;
+        document.getElementById('todayViews').textContent = Math.floor(Math.random() * 1000);
+        
+        // Show movie list
+        const movieList = document.getElementById('movieList');
+        movies.forEach(movie => {
+            const div = document.createElement('div');
+            div.className = 'movie-list-item';
+            div.innerHTML = `
+                <span>${movie.title}</span>
+                <span>${movie.views || 0} watazamaji</span>
+            `;
+            movieList.appendChild(div);
+        });
+    </script>
+</body>
+</html>
